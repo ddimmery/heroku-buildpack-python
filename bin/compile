@@ -49,7 +49,8 @@ BUILDPACK_VERSION=v28
 
 # Setup the R environment variables
 #export PATH=$PATH:/app/vendor/R/bin
-source /app/.profile.d/r_environment.sh
+echo `ls -a /app`
+source $BUILD_DIR/.profile.d/r_environment.sh
 #export R_HOME=$BUILD_DIR/vendor/R/lib/R
 #export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/app/vendor/R/lib64/R/modules:/app/vendor/R/lib64/R/lib:/app/vendor/gcc-4.3/lib64
 
