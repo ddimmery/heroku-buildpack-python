@@ -62,6 +62,7 @@ echo $R_HOME
 echo R RHOME output:
 echo `R RHOME`
 echo `ls /app/vendor/R`
+echo `ls /app/vendor/.apt/usr/lib/`
 #echo "rpy2>=2.7.8 --install-option=\"--r-home "$BUILD_DIR"/vendor/R/lib/R\"" >> $BUILD_DIR/requirements.txt
 
 # Setup pip-pop (pip-diff)
