@@ -48,7 +48,7 @@ export BPWATCH_STORE_PATH=$CACHE_DIR/bpwatch.json
 BUILDPACK_VERSION=v28
 
 # Setup R
-echo `ls $ENV_DIR`
+echo `cat $ENV_DIR/R_HOME`
 # Setup the environment variables
 
 echo R is at:
