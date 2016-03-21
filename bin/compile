@@ -27,8 +27,6 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-echo $ENV_DIR
-
 # Static configurations for virtualenv caches.
 VIRTUALENV_LOC=".heroku/venv"
 LEGACY_TRIGGER="lib/python2.7"
@@ -48,6 +46,10 @@ export PATH=$PATH:$ROOT_DIR/vendor/bpwatch
 LOGPLEX_KEY="t.b90d9d29-5388-4908-9737-b4576af1d4ce"
 export BPWATCH_STORE_PATH=$CACHE_DIR/bpwatch.json
 BUILDPACK_VERSION=v28
+
+# Setup R
+export PATH=$PATH:/app/vendor/R/bin
+export R_HOME=/app/vendor/R/lib/R
 
 # Setup pip-pop (pip-diff)
 export PATH=$PATH:$ROOT_DIR/vendor/pip-pop
