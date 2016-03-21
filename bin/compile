@@ -59,6 +59,8 @@ echo R_HOME is:
 echo $R_HOME
 echo R RHOME output:
 echo `R RHOME`
+echo `ls /app/vendor/R`
+#echo "rpy2>=2.7.8 --install-option=\"--r-home "$BUILD_DIR"/vendor/R/lib/R\"" >> $BUILD_DIR/requirements.txt
 
 # Setup pip-pop (pip-diff)
 export PATH=$PATH:$ROOT_DIR/vendor/pip-pop
