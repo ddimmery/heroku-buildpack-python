@@ -52,7 +52,8 @@ echo `cat $ENV_DIR/R_HOME`
 echo `ls $ROOT_DIR/vendor`
 echo `ls -a $BUILD_DIR/vendor`
 # Setup the environment variables
-
+export PATH=$PATH:$BUILD_DIR/vendor/R/bin
+export R_HOME=$BUILD_DIR/vendor/R/lib/R
 echo R is at:
 echo `which R`
 
@@ -127,6 +128,7 @@ export LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/app/.
 export LD_LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/app/.heroku/python/lib
 export PKG_CONFIG_PATH=/app/.heroku/vendor/lib/pkg-config:$BUILD_DIR/.heroku/vendor/lib/pkg-config:/app/.heroku/python/lib/pkg-config
 
+echo PATH IS:
 echo $PATH
 
 # Switch to the repo's context.
