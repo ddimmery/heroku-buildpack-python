@@ -54,8 +54,12 @@ echo `ls -a $BUILD_DIR/vendor`
 # Setup the environment variables
 export PATH=$PATH:$BUILD_DIR/vendor/R/bin
 export R_HOME=$BUILD_DIR/vendor/R/lib/R
+export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:$BUILD_DIR/vendor/R/lib64/R/modules:$BUILD_DIR/vendor/R/lib64/R/lib:$BUILD_DIR/vendor/gcc-4.3/lib64
+
+
 echo R is at:
 echo `which R`
+echo `R RHOME`
 
 # Setup pip-pop (pip-diff)
 export PATH=$PATH:$ROOT_DIR/vendor/pip-pop
