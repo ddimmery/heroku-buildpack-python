@@ -27,6 +27,8 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
+echo $ENV_DIR
+
 # Static configurations for virtualenv caches.
 VIRTUALENV_LOC=".heroku/venv"
 LEGACY_TRIGGER="lib/python2.7"
@@ -117,6 +119,8 @@ export CPLUS_INCLUDE_PATH=/app/.heroku/vendor/include:$BUILD_DIR/.heroku/vendor/
 export LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/app/.heroku/python/lib
 export LD_LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/app/.heroku/python/lib
 export PKG_CONFIG_PATH=/app/.heroku/vendor/lib/pkg-config:$BUILD_DIR/.heroku/vendor/lib/pkg-config:/app/.heroku/python/lib/pkg-config
+
+echo $PATH
 
 # Switch to the repo's context.
 cd $BUILD_DIR
@@ -213,7 +217,7 @@ source $BIN_DIR/steps/pip-install
 # Django collectstatic support.
 sub-env $BIN_DIR/steps/collectstatic
 
-
+echo $PATH
 # Create .profile script for application runtime environment variables.
 set-env PATH '$HOME/.heroku/python/bin:$PATH'
 set-env PYTHONUNBUFFERED true
