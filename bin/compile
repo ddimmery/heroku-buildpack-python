@@ -48,9 +48,9 @@ export BPWATCH_STORE_PATH=$CACHE_DIR/bpwatch.json
 BUILDPACK_VERSION=v28
 
 # Setup R
-export PATH=$PATH:/app/vendor/R/bin
-export R_HOME=/app/vendor/R/lib/R
+source /app/.profile.d/r_environment.sh
 
+echo R is at:
 echo `which R`
 
 # Setup pip-pop (pip-diff)
