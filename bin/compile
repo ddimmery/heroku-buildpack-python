@@ -50,7 +50,7 @@ BUILDPACK_VERSION=v28
 # Setup R
 echo `cat $ENV_DIR/R_HOME`
 echo `ls $ROOT_DIR/vendor`
-echo `ls -a $BUILD_DIR`
+echo `ls -a $BUILD_DIR/vendor`
 # Setup the environment variables
 
 echo R is at:
