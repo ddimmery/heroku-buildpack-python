@@ -51,6 +51,8 @@ BUILDPACK_VERSION=v28
 export PATH=$PATH:/app/vendor/R/bin
 export R_HOME=/app/vendor/R/lib/R
 
+echo `which R`
+
 # Setup pip-pop (pip-diff)
 export PATH=$PATH:$ROOT_DIR/vendor/pip-pop
 
@@ -212,6 +214,9 @@ sub-env $BIN_DIR/steps/geo-libs
 
 # GDAL support.
 source $BIN_DIR/steps/gdal
+
+echo $BIN_DIR/steps/pip-install
+cat $BIN_DIR/steps/pip-install > /app/tmp_file
 
 # Install dependencies with Pip.
 source $BIN_DIR/steps/pip-install
