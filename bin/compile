@@ -236,7 +236,6 @@ sub-env $BIN_DIR/steps/geo-libs
 source $BIN_DIR/steps/gdal
 
 echo $BIN_DIR/steps/pip-install
-cat $BIN_DIR/steps/pip-install > /app/tmp_file
 
 # Install dependencies with Pip.
 source $BIN_DIR/steps/pip-install
