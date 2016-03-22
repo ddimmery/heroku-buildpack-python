@@ -265,7 +265,7 @@ cp $ROOT_DIR/vendor/python.gunicorn.sh $GUNICORN_PROFILE_PATH
 
 echo final path is:
 echo $PATH
-asdf
+
 # Experimental post_compile hook.
 bpwatch start post_compile
   source $BIN_DIR/steps/hooks/post_compile
