@@ -146,6 +146,9 @@ export PKG_CONFIG_PATH=/app/.heroku/vendor/lib/pkg-config:$BUILD_DIR/.heroku/ven
 echo PATH IS:
 echo $PATH
 
+echo LD_LIBRARY_PATH IS:
+echo $LD_LIBRARY_PATH
+
 # Switch to the repo's context.
 cd $BUILD_DIR
 
