@@ -1,7 +1,19 @@
-# Heroku Buildpack: Python
+# Heroku Buildpack: Python (now with rpy2)
+
+The basic Heroku build process fails for rpy2. The solution that I have found consists of the following:
+* Set up the [typical multi-buildpacks](https://github.com/ddollar/heroku-buildpack-multi.git). This means running
+    $ heroku buildpacks:set https://github.com/ddollar/heroku-buildpack-multi.git
+* Add the following to .buildpacks
+    http://github.com/ddimmery/heroku-buildpack-r.git#cedar-14
+    https://github.com/ddimmery/heroku-buildpack-python
+* These two buildpacks are slightly modified from the default versions. In particular,
+  * The R buildpack is modified to ensure that the resulting $PATH environment variable is set to use the correct python executable
+  * The Python buildpack is modified to ensure that R is visible and usable when running `pip -r requirements.txt`
+  * That's basically it. I have no doubt that there's a better way to do this, but I was unable to see how.
+
 ![python](https://cloud.githubusercontent.com/assets/51578/13712821/b68a42ce-e793-11e5-96b0-d8eb978137ba.png)
 
-This is the official [Heroku buildpack](https://devcenter.heroku.com/articles/buildpacks) for Python apps, powered by [pip](https://pip.pypa.io/) and other excellent software.
+This is forked from the official [Heroku buildpack](https://devcenter.heroku.com/articles/buildpacks) for Python apps, powered by [pip](https://pip.pypa.io/) and other excellent software.
 
 Recommended web frameworks include **Django** and **Flask**. The recommended webserver is **Gunicorn**. There are no restrictions around what software can be used (as long as it's pip-installable). Web processes must bind to `$PORT`, and only the HTTP protocol is permitted for incoming connections.
 
