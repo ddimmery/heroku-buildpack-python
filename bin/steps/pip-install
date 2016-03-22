@@ -4,11 +4,11 @@ puts-cmd "pip install -r requirements.txt"
 [ ! "$FRESH_PYTHON" ] && bpwatch start pip_install
 [ "$FRESH_PYTHON" ] && bpwatch start pip_install_first
 
-echo ld_library_path is NOW:
-echo $LD_LIBRARY_PATH
+#echo ld_library_path is NOW:
+#echo $LD_LIBRARY_PATH
 
-echo path is NOW:
-echo $PATH
+#echo path is NOW:
+#echo $PATH
 
 set +e
 /app/.heroku/python/bin/pip install -r requirements.txt --exists-action=w --src=./.heroku/src --disable-pip-version-check --no-cache-dir 2>&1 | tee $WARNINGS_LOG | cleanup | indent
