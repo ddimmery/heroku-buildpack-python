@@ -17,10 +17,9 @@ set -eo pipefail
 
 [ "$BUILDPACK_XTRACE" ] && set -o xtrace
 
-unset PATH
 # Prepend proper path for virtualenv hackery. This will be deprecated soon.
 export PATH=:/usr/local/bin:$PATH
-
+asdf 
 # Paths.
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 ROOT_DIR=$(dirname $BIN_DIR)
