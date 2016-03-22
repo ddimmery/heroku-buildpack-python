@@ -19,8 +19,7 @@ set -eo pipefail
 
 # Prepend proper path for virtualenv hackery. This will be deprecated soon.
 export PATH=:/usr/local/bin:$PATH
-echo $PATH
-asdf 
+
 # Paths.
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 ROOT_DIR=$(dirname $BIN_DIR)
@@ -71,7 +70,7 @@ echo $R_HOME
 echo R RHOME output:
 echo `R RHOME`
 
-echo `/app/vendor/R/lib/R/bin/exec/R --version`
+#echo `/app/vendor/R/lib/R/bin/exec/R --version`
 
 # Setup pip-pop (pip-diff)
 export PATH=$PATH:$ROOT_DIR/vendor/pip-pop
@@ -134,8 +133,12 @@ GUNICORN_PROFILE_PATH="$BUILD_DIR/.profile.d/python.gunicorn.sh"
 # We'll need to send these statics to other scripts we `source`.
 export BUILD_DIR CACHE_DIR BIN_DIR PROFILE_PATH
 
+echo $PATH
+
 # Prepend proper environment variables for Python use.
 export PATH=$BUILD_DIR/.heroku/python/bin:$BUILD_DIR/.heroku/vendor/bin:$PATH
+echo $PATH
+asdf 
 export PYTHONUNBUFFERED=1
 export LANG=en_US.UTF-8
 export C_INCLUDE_PATH=/app/.heroku/vendor/include:$BUILD_DIR/.heroku/vendor/include:/app/.heroku/python/include
