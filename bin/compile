@@ -245,7 +245,7 @@ source $BIN_DIR/steps/gdal
 
 # Install dependencies with Pip.
 source $BIN_DIR/steps/pip-install
-asdf
+
 # Django collectstatic support.
 sub-env $BIN_DIR/steps/collectstatic
 
@@ -263,7 +263,9 @@ set-default-env PYTHONPATH /app/
 # Install sane-default script for $WEB_CONCURRENCY and $FORWARDED_ALLOW_IPS.
 cp $ROOT_DIR/vendor/python.gunicorn.sh $GUNICORN_PROFILE_PATH
 
-
+echo final path is:
+echo $PATH
+asdf
 # Experimental post_compile hook.
 bpwatch start post_compile
   source $BIN_DIR/steps/hooks/post_compile
