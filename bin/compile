@@ -137,8 +137,7 @@ echo $PATH
 
 # Prepend proper environment variables for Python use.
 export PATH=$BUILD_DIR/.heroku/python/bin:$BUILD_DIR/.heroku/vendor/bin:$PATH
-echo $PATH
-asdf 
+
 export PYTHONUNBUFFERED=1
 export LANG=en_US.UTF-8
 export C_INCLUDE_PATH=/app/.heroku/vendor/include:$BUILD_DIR/.heroku/vendor/include:/app/.heroku/python/include
@@ -149,6 +148,9 @@ export PKG_CONFIG_PATH=/app/.heroku/vendor/lib/pkg-config:$BUILD_DIR/.heroku/ven
 
 echo LD_LIBRARY_PATH IS:
 echo $LD_LIBRARY_PATH
+
+echo PATH IS:
+echo $PATH
 
 # Switch to the repo's context.
 cd $BUILD_DIR
@@ -218,6 +220,8 @@ mkdir -p $(dirname $PROFILE_PATH)
 # Install Python.
 source $BIN_DIR/steps/python
 
+echo $PATH
+asdf
 # Sanity check for setuptools/distribute.
 source $BIN_DIR/steps/setuptools
 
