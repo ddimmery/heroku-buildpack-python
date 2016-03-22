@@ -221,7 +221,7 @@ mkdir -p $(dirname $PROFILE_PATH)
 source $BIN_DIR/steps/python
 
 echo $PATH
-asdf
+
 # Sanity check for setuptools/distribute.
 source $BIN_DIR/steps/setuptools
 
@@ -243,11 +243,9 @@ sub-env $BIN_DIR/steps/geo-libs
 # GDAL support.
 source $BIN_DIR/steps/gdal
 
-echo $BIN_DIR/steps/pip-install
-
 # Install dependencies with Pip.
 source $BIN_DIR/steps/pip-install
-
+asdf
 # Django collectstatic support.
 sub-env $BIN_DIR/steps/collectstatic
 
