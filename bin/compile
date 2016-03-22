@@ -57,8 +57,8 @@ source $BUILD_DIR/.profile.d/r_environment.sh
 mkdir -p /app/vendor/.apt
 cp -r $BUILD_DIR/vendor/.apt/* /app/vendor/.apt/
 
-echo ld_library_path
-echo $LD_LIBRARY_PATH
+#echo ld_library_path
+#echo $LD_LIBRARY_PATH
 
 #echo "rpy2>=2.7.8 --install-option=\"--r-home "$BUILD_DIR"/vendor/R/lib/R\"" >> $BUILD_DIR/requirements.txt
 
@@ -81,7 +81,7 @@ export PATH=$PATH:$ROOT_DIR/vendor/pip-pop
 [ ! "$STACK" ] && STACK=$DEFAULT_PYTHON_STACK
 
 # Sanitizing environment variables.
-unset GIT_DIR PYTHONHOME PYTHONPATH #LD_LIBRARY_PATH LIBRARY_PATH
+unset GIT_DIR PYTHONHOME PYTHONPATH LD_LIBRARY_PATH LIBRARY_PATH
 unset RECEIVE_DATA RUN_KEY BUILD_INFO DEPLOY LOG_TOKEN DYNO
 unset CYTOKINE_LOG_FILE GEM_PATH
 
@@ -137,14 +137,11 @@ export BUILD_DIR CACHE_DIR BIN_DIR PROFILE_PATH
 export PATH=$BUILD_DIR/.heroku/python/bin:$BUILD_DIR/.heroku/vendor/bin:$PATH
 export PYTHONUNBUFFERED=1
 export LANG=en_US.UTF-8
-export C_INCLUDE_PATH=/app/.heroku/vendor/include:$BUILD_DIR/.heroku/vendor/include:/app/.heroku/python/include:$C_INCLUDE_PATH
-export CPLUS_INCLUDE_PATH=/app/.heroku/vendor/include:$BUILD_DIR/.heroku/vendor/include:/app/.heroku/python/include:$CPLUS_INCLUDE_PATH
-export LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/app/.heroku/python/lib:$LIBRARY_PATH
-export LD_LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/app/.heroku/python/lib:$LD_LIBRARY_PATH
+export C_INCLUDE_PATH=/app/.heroku/vendor/include:$BUILD_DIR/.heroku/vendor/include:/app/.heroku/python/include
+export CPLUS_INCLUDE_PATH=/app/.heroku/vendor/include:$BUILD_DIR/.heroku/vendor/include:/app/.heroku/python/include
+export LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/app/.heroku/python/lib
+export LD_LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/app/.heroku/python/lib:/app/vendor/.apt/usr/lib/libblas:/app/vendor/.apt/usr/lib/lapack
 export PKG_CONFIG_PATH=/app/.heroku/vendor/lib/pkg-config:$BUILD_DIR/.heroku/vendor/lib/pkg-config:/app/.heroku/python/lib/pkg-config
-
-echo PATH IS:
-echo $PATH
 
 echo LD_LIBRARY_PATH IS:
 echo $LD_LIBRARY_PATH
