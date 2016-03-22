@@ -56,7 +56,9 @@ source $BUILD_DIR/.profile.d/r_environment.sh
 
 mkdir -p /app/vendor/.apt
 cp -r $BUILD_DIR/vendor/.apt/* /app/vendor/.apt/
-echo `ls /app/vendor/.apt/usr/lib/`
+
+echo ld_library_path
+echo $LD_LIBRARY_PATH
 
 #echo "rpy2>=2.7.8 --install-option=\"--r-home "$BUILD_DIR"/vendor/R/lib/R\"" >> $BUILD_DIR/requirements.txt
 
@@ -67,6 +69,8 @@ echo R_HOME is:
 echo $R_HOME
 echo R RHOME output:
 echo `R RHOME`
+
+echo `/app/vendor/R/lib/R/bin/exec/R --version`
 
 # Setup pip-pop (pip-diff)
 export PATH=$PATH:$ROOT_DIR/vendor/pip-pop
