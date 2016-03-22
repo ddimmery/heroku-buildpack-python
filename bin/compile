@@ -49,7 +49,7 @@ BUILDPACK_VERSION=v28
 
 # Setup the R environment variables
 export PATH=$PATH:/app/vendor/R/bin
-echo `ls -a /app`
+#echo `ls -a /app`
 #source $BUILD_DIR/.profile.d/r_environment.sh
 #export R_HOME=$BUILD_DIR/vendor/R/lib/R
 #export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/app/vendor/R/lib64/R/modules:/app/vendor/R/lib64/R/lib:/app/vendor/gcc-4.3/lib64
@@ -63,12 +63,12 @@ cp -r $BUILD_DIR/vendor/.apt/* /app/vendor/.apt/
 #echo "rpy2>=2.7.8 --install-option=\"--r-home "$BUILD_DIR"/vendor/R/lib/R\"" >> $BUILD_DIR/requirements.txt
 
 # Test
-echo R is at:
-echo `which R`
-echo R_HOME is:
-echo $R_HOME
-echo R RHOME output:
-echo `R RHOME`
+#echo R is at:
+#echo `which R`
+#echo R_HOME is:
+#echo $R_HOME
+#echo R RHOME output:
+#echo `R RHOME`
 
 #echo `/app/vendor/R/lib/R/bin/exec/R --version`
 
@@ -133,8 +133,6 @@ GUNICORN_PROFILE_PATH="$BUILD_DIR/.profile.d/python.gunicorn.sh"
 # We'll need to send these statics to other scripts we `source`.
 export BUILD_DIR CACHE_DIR BIN_DIR PROFILE_PATH
 
-echo $PATH
-
 # Prepend proper environment variables for Python use.
 export PATH=$BUILD_DIR/.heroku/python/bin:$BUILD_DIR/.heroku/vendor/bin:$PATH
 
@@ -146,11 +144,11 @@ export LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/app/.
 export LD_LIBRARY_PATH=/app/.heroku/vendor/lib:$BUILD_DIR/.heroku/vendor/lib:/app/.heroku/python/lib:/app/vendor/.apt/usr/lib/libblas:/app/vendor/.apt/usr/lib/lapack
 export PKG_CONFIG_PATH=/app/.heroku/vendor/lib/pkg-config:$BUILD_DIR/.heroku/vendor/lib/pkg-config:/app/.heroku/python/lib/pkg-config
 
-echo LD_LIBRARY_PATH IS:
-echo $LD_LIBRARY_PATH
+#echo LD_LIBRARY_PATH IS:
+#echo $LD_LIBRARY_PATH
 
-echo PATH IS:
-echo $PATH
+#echo PATH IS:
+#echo $PATH
 
 # Switch to the repo's context.
 cd $BUILD_DIR
@@ -220,8 +218,6 @@ mkdir -p $(dirname $PROFILE_PATH)
 # Install Python.
 source $BIN_DIR/steps/python
 
-echo $PATH
-
 # Sanity check for setuptools/distribute.
 source $BIN_DIR/steps/setuptools
 
@@ -249,7 +245,6 @@ source $BIN_DIR/steps/pip-install
 # Django collectstatic support.
 sub-env $BIN_DIR/steps/collectstatic
 
-echo $PATH
 # Create .profile script for application runtime environment variables.
 set-env PATH '$HOME/.heroku/python/bin:$PATH'
 set-env PYTHONUNBUFFERED true
